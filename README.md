@@ -12,7 +12,7 @@
 
 ## Write Unittests  
 
-1. Add Testbench to your PLC by including it as a dependency
+1. Add Testbench to your PLC by including it as a dependency. The simplest way todo this is by using [Twinpack)(https://github.com/Zeugwerk/Twinpack) Package Manager, alternatively you can grab the [latest release](https://github.com/Zeugwerk/Testbench/releases/latest) from GitHub and install it manually in the TwinCAT XAE).
 1. Testsuites are function blocks implementing [IUnitTest](xref:Testbench.IUnitTest)
      ``` st  
      FUNCTION_BLOCK <POU>Test EXTENDS <POU> IMPLEMENTS Testbench.IUnitTest>
@@ -27,7 +27,9 @@
      END_VAR
      ```
 
-     or, for more simple tests with only 1 assertion
+     where `assertions` gives access to a large variety of checks (`EqualsDint`, `IsTrue`, `EqualsArray2dLreal`, ...).
+
+     Alternatively, for more simple tests with only 1 assertion
      ``` st
      METHOD Test_<NAME OF THE TEST>
      VAR_OUTPUT
