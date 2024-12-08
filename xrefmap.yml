@@ -1,0 +1,9 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Testbench.IAssertions
+  name: IAssertions
+  href: reference/Testbench/IAssertions.html
+- uid: Testbench.IUnitTest
+  name: IUnitTest
+  href: reference/Testbench/IUnitTest.html

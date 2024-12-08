@@ -1,0 +1,103 @@
+{
+  "source_base_path": "C:/jenkins/workspace/jobs/doc/doc",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "reference/Testbench/IAssertions.md",
+      "output": {
+        ".html": {
+          "relative_path": "reference/Testbench/IAssertions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "reference/Testbench/IUnitTest.md",
+      "output": {
+        ".html": {
+          "relative_path": "reference/Testbench/IUnitTest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "reference/Testbench/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/Testbench/toc.html"
+        },
+        ".json": {
+          "relative_path": "reference/Testbench/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "reference/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/toc.html"
+        },
+        ".json": {
+          "relative_path": "reference/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "userguide/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "userguide/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "userguide/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "userguide/toc.html"
+        },
+        ".json": {
+          "relative_path": "userguide/toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

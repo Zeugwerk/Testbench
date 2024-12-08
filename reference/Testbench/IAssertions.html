@@ -1,0 +1,868 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>IAssertions </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="IAssertions ">
+    
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../../userguide/introduction.html" title="User guide">User guide</a>
+                      </li>
+                      <li>
+                          <a href="../../reference/Testbench/IAssertions.html" title="API Reference">API Reference</a>
+                      </li>
+                </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+
+                  <ul class="nav level1">
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a class="">Testbench</a>
+
+                        <ul class="nav level2">
+                          <li class="active">
+                            <a href="../Testbench/IAssertions.html" title="IAssertions" class="active">IAssertions</a>
+                          </li>
+                          <li class="">
+                            <a href="../Testbench/IUnitTest.html" title="IUnitTest" class="">IUnitTest</a>
+                          </li>
+                        </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Testbench.IAssertions">
+<h1 id="Testbench_IAssertions" data-uid="Testbench.IAssertions" class="text-break">IAssertions</h1>
+
+<div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="IAssertions.html">Testbench</a></dd></dl>
+  
+  </div>
+<p>Collection of utility methods that support asserting conditions in unittests.
+The declarations are taken from <a href="https://github.com/tcunit/TcUnit">TcUnit</a> and the usual implementation
+of this interface that is used when testing is a wrapper around <a href="https://github.com/tcunit/TcUnit">FB_TestSuite</a>.</p>
+<p>For details, see <a class="xref" href="IUnitTest.html">IUnitTest</a>.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">INTERFACE IAssertions
+</code></pre></div>
+<h2 class="section" id="methods">Methods</h2>
+<h3 id="Testbench.IAssertions_Equals" data-uid="Testbench.IAssertions.Equals">
+Equals
+</h3><a name="Equals"></a>
+<p>Asserts that two objects (of any type) are equal. If they are not, an assertion error is created.
+For REAL and LREAL it's recommended to use the AssertEquals_REAL or AssertEquals_LREAL respectively
+as these give the possibility to specify a delta between the expected and actual value.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC Equals (
+ expected : ANY,
+ actual : ANY,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ANY<dd><p><p>Expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> ANY<dd><p><p>The value to check against expected</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArray2dLreal" data-uid="Testbench.IAssertions.EqualsArray2dLreal">
+EqualsArray2dLreal
+</h3><a name="EqualsArray2dLreal"></a>
+<p>Asserts that two LREAL 2D-arrays are equal to within a positive delta. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArray2dLreal (
+ delta : LREAL,
+ message : STRING(255),
+ expected : ARRAY[*,*] OF LREAL,
+ actual : ARRAY[*,*] OF LREAL)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="delta"></a><dt><code>delta</code> LREAL<dd><p><p>The maximum delta between the value of expected and actual for which both numbers are still considered equal, proportional to the expected value in that array cell</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*,*] OF LREAL<dd><p><p>LREAL 2d array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*,*] OF LREAL<dd><p><p>LREAL 2d array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArray2dReal" data-uid="Testbench.IAssertions.EqualsArray2dReal">
+EqualsArray2dReal
+</h3><a name="EqualsArray2dReal"></a>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArray2dReal (
+ delta : REAL,
+ message : STRING(255),
+ expected : ARRAY[*,*] OF REAL,
+ actual : ARRAY[*,*] OF REAL)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="delta"></a><dt><code>delta</code> REAL<dd><p><p>The maximum delta between the value of expected and actual for which both numbers are still considered equal, proportional to the expected value in that array cell</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*,*] OF REAL<dd><p><p>REAL 2d array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*,*] OF REAL<dd><p><p>REAL 2d array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArray3dLreal" data-uid="Testbench.IAssertions.EqualsArray3dLreal">
+EqualsArray3dLreal
+</h3><a name="EqualsArray3dLreal"></a>
+<p>Asserts that two LREAL 3D-arrays are equal to within a positive delta. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArray3dLreal (
+ delta : LREAL,
+ message : STRING(255),
+ expected : ARRAY[*,*,*] OF LREAL,
+ actual : ARRAY[*,*,*] OF LREAL)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="delta"></a><dt><code>delta</code> LREAL<dd><p><p>The maximum delta between the value of expected and actual for which both numbers are still considered equal, proportional to the expected value in that array cell</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*,*,*] OF LREAL<dd><p><p>LREAL 3d array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*,*,*] OF LREAL<dd><p><p>LREAL 3d array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArray3dReal" data-uid="Testbench.IAssertions.EqualsArray3dReal">
+EqualsArray3dReal
+</h3><a name="EqualsArray3dReal"></a>
+<p>Asserts that two REAL 3D-arrays are equal to within a positive delta. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArray3dReal (
+ delta : REAL,
+ message : STRING(255),
+ expected : ARRAY[*,*,*] OF REAL,
+ actual : ARRAY[*,*,*] OF REAL)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="delta"></a><dt><code>delta</code> REAL<dd><p><p>The maximum delta between the value of expected and actual for which both numbers are still considered equal, proportional to the expected value in that array cell</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*,*,*] OF REAL<dd><p><p>REAL 3d array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*,*,*] OF REAL<dd><p><p>REAL 3d array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArrayBool" data-uid="Testbench.IAssertions.EqualsArrayBool">
+EqualsArrayBool
+</h3><a name="EqualsArrayBool"></a>
+<p>Asserts that two BOOL arrays are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArrayBool (
+ message : STRING(255),
+ expected : ARRAY[*] OF BOOL,
+ actual : ARRAY[*] OF BOOL)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*] OF BOOL<dd><p><p>BOOL array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*] OF BOOL<dd><p><p>BOOL array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArrayByte" data-uid="Testbench.IAssertions.EqualsArrayByte">
+EqualsArrayByte
+</h3><a name="EqualsArrayByte"></a>
+<p>Asserts that two BYTE arrays are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArrayByte (
+ message : STRING(255),
+ expected : ARRAY[*] OF BYTE,
+ actual : ARRAY[*] OF BYTE)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*] OF BYTE<dd><p><p>BYTE array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*] OF BYTE<dd><p><p>BYTE array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArrayDint" data-uid="Testbench.IAssertions.EqualsArrayDint">
+EqualsArrayDint
+</h3><a name="EqualsArrayDint"></a>
+<p>Asserts that two DINT arrays are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArrayDint (
+ message : STRING(255),
+ expected : ARRAY[*] OF DINT,
+ actual : ARRAY[*] OF DINT)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*] OF DINT<dd><p><p>DINT array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*] OF DINT<dd><p><p>DINT array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArrayDword" data-uid="Testbench.IAssertions.EqualsArrayDword">
+EqualsArrayDword
+</h3><a name="EqualsArrayDword"></a>
+<p>Asserts that two DWORD arrays are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArrayDword (
+ message : STRING(255),
+ expected : ARRAY[*] OF DWORD,
+ actual : ARRAY[*] OF DWORD)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*] OF DWORD<dd><p><p>DWORD array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*] OF DWORD<dd><p><p>DWORD array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArrayInt" data-uid="Testbench.IAssertions.EqualsArrayInt">
+EqualsArrayInt
+</h3><a name="EqualsArrayInt"></a>
+<p>Asserts that two INT arrays are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArrayInt (
+ message : STRING(255),
+ expected : ARRAY[*] OF INT,
+ actual : ARRAY[*] OF INT)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*] OF INT<dd><p><p>INT array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*] OF INT<dd><p><p>INT array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArrayLint" data-uid="Testbench.IAssertions.EqualsArrayLint">
+EqualsArrayLint
+</h3><a name="EqualsArrayLint"></a>
+<p>Asserts that two LINT arrays are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArrayLint (
+ message : STRING(255),
+ expected : ARRAY[*] OF LINT,
+ actual : ARRAY[*] OF LINT)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*] OF LINT<dd><p><p>LINT array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*] OF LINT<dd><p><p>LINT array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArrayLreal" data-uid="Testbench.IAssertions.EqualsArrayLreal">
+EqualsArrayLreal
+</h3><a name="EqualsArrayLreal"></a>
+<p>Asserts that two LREAL arrays are equal to within a positive delta. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArrayLreal (
+ delta : LREAL,
+ message : STRING(255),
+ expected : ARRAY[*] OF LREAL,
+ actual : ARRAY[*] OF LREAL)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="delta"></a><dt><code>delta</code> LREAL<dd><p><p>The maximum delta between the value of expected and actual for which both numbers are still considered equal, proportional to the expected value in that array cell</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*] OF LREAL<dd><p><p>LREAL array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*] OF LREAL<dd><p><p>LREAL array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArrayLword" data-uid="Testbench.IAssertions.EqualsArrayLword">
+EqualsArrayLword
+</h3><a name="EqualsArrayLword"></a>
+<p>Asserts that two LWORD arrays are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArrayLword (
+ message : STRING(255),
+ expected : ARRAY[*] OF LWORD,
+ actual : ARRAY[*] OF LWORD)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*] OF LWORD<dd><p><p>LWORD array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*] OF LWORD<dd><p><p>LWORD array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArrayReal" data-uid="Testbench.IAssertions.EqualsArrayReal">
+EqualsArrayReal
+</h3><a name="EqualsArrayReal"></a>
+<p>Asserts that two REAL arrays are equal to within a positive delta. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArrayReal (
+ delta : REAL,
+ message : STRING(255),
+ expected : ARRAY[*] OF REAL,
+ actual : ARRAY[*] OF REAL)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="delta"></a><dt><code>delta</code> REAL<dd><p><p>The maximum delta between the value of expected and actual for which both numbers are still considered equal, proportional to the expected value in that array cell</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*] OF REAL<dd><p><p>REAL array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*] OF REAL<dd><p><p>REAL array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArraySint" data-uid="Testbench.IAssertions.EqualsArraySint">
+EqualsArraySint
+</h3><a name="EqualsArraySint"></a>
+<p>Asserts that two SINT arrays are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArraySint (
+ message : STRING(255),
+ expected : ARRAY[*] OF SINT,
+ actual : ARRAY[*] OF SINT)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*] OF SINT<dd><p><p>SINT array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*] OF SINT<dd><p><p>SINT array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArrayUdint" data-uid="Testbench.IAssertions.EqualsArrayUdint">
+EqualsArrayUdint
+</h3><a name="EqualsArrayUdint"></a>
+<p>Asserts that two UDINT arrays are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArrayUdint (
+ message : STRING(255),
+ expected : ARRAY[*] OF UDINT,
+ actual : ARRAY[*] OF UDINT)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*] OF UDINT<dd><p><p>UDINT array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*] OF UDINT<dd><p><p>UDINT array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArrayUint" data-uid="Testbench.IAssertions.EqualsArrayUint">
+EqualsArrayUint
+</h3><a name="EqualsArrayUint"></a>
+<p>Asserts that two UINT arrays are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArrayUint (
+ message : STRING(255),
+ expected : ARRAY[*] OF UINT,
+ actual : ARRAY[*] OF UINT)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*] OF UINT<dd><p><p>UINT array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*] OF UINT<dd><p><p>UINT array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArrayUlint" data-uid="Testbench.IAssertions.EqualsArrayUlint">
+EqualsArrayUlint
+</h3><a name="EqualsArrayUlint"></a>
+<p>Asserts that two ULINT arrays are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArrayUlint (
+ message : STRING(255),
+ expected : ARRAY[*] OF ULINT,
+ actual : ARRAY[*] OF ULINT)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*] OF ULINT<dd><p><p>ULINT array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*] OF ULINT<dd><p><p>ULINT array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArrayUsint" data-uid="Testbench.IAssertions.EqualsArrayUsint">
+EqualsArrayUsint
+</h3><a name="EqualsArrayUsint"></a>
+<p>Asserts that two USINT arrays are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArrayUsint (
+ message : STRING(255),
+ expected : ARRAY[*] OF USINT,
+ actual : ARRAY[*] OF USINT)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*] OF USINT<dd><p><p>USINT array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*] OF USINT<dd><p><p>USINT array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsArrayWord" data-uid="Testbench.IAssertions.EqualsArrayWord">
+EqualsArrayWord
+</h3><a name="EqualsArrayWord"></a>
+<p>Asserts that two WORD arrays are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsArrayWord (
+ message : STRING(255),
+ expected : ARRAY[*] OF WORD,
+ actual : ARRAY[*] OF WORD)
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h4 class="section">Inouts</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ARRAY[*] OF WORD<dd><p><p>WORD array with expected values</p>
+</dd><a name="actual"></a><dt><code>actual</code> ARRAY[*] OF WORD<dd><p><p>WORD array with actual values</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsBool" data-uid="Testbench.IAssertions.EqualsBool">
+EqualsBool
+</h3><a name="EqualsBool"></a>
+<p>Asserts that two BOOLs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsBool (
+ expected : BOOL,
+ actual : BOOL,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> BOOL<dd><p><p>BOOL expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> BOOL<dd><p><p>BOOL actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsByte" data-uid="Testbench.IAssertions.EqualsByte">
+EqualsByte
+</h3><a name="EqualsByte"></a>
+<p>Asserts that two BYTEs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsByte (
+ expected : BYTE,
+ actual : BYTE,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> BYTE<dd><p><p>BYTE expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> BYTE<dd><p><p>BYTE actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsDate" data-uid="Testbench.IAssertions.EqualsDate">
+EqualsDate
+</h3><a name="EqualsDate"></a>
+<p>Asserts that two DATEs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsDate (
+ expected : DATE,
+ actual : DATE,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> DATE<dd><p><p>DATE expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> DATE<dd><p><p>DATE actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsDateAndTime" data-uid="Testbench.IAssertions.EqualsDateAndTime">
+EqualsDateAndTime
+</h3><a name="EqualsDateAndTime"></a>
+<p>Asserts that two DATE_AND_TIMEs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsDateAndTime (
+ expected : DATE_AND_TIME,
+ actual : DATE_AND_TIME,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> DATE_AND_TIME<dd><p><p>DATE_AND_TIME expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> DATE_AND_TIME<dd><p><p>DATE_AND_TIME actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsDint" data-uid="Testbench.IAssertions.EqualsDint">
+EqualsDint
+</h3><a name="EqualsDint"></a>
+<p>Asserts that two DINTs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsDint (
+ expected : DINT,
+ actual : DINT,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> DINT<dd><p><p>DINT expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> DINT<dd><p><p>DINT actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p></p></dd></dl>
+<h3 id="Testbench.IAssertions_EqualsDword" data-uid="Testbench.IAssertions.EqualsDword">
+EqualsDword
+</h3><a name="EqualsDword"></a>
+<p>Asserts that two DWORDs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsDword (
+ expected : DWORD,
+ actual : DWORD,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> DWORD<dd><p><p>DWORD expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> DWORD<dd><p><p>DWORD actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsInt" data-uid="Testbench.IAssertions.EqualsInt">
+EqualsInt
+</h3><a name="EqualsInt"></a>
+<p>Asserts that two INTs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsInt (
+ expected : INT,
+ actual : INT,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> INT<dd><p><p>INT expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> INT<dd><p><p>INT actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsLint" data-uid="Testbench.IAssertions.EqualsLint">
+EqualsLint
+</h3><a name="EqualsLint"></a>
+<p>Asserts that two LINTs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsLint (
+ expected : LINT,
+ actual : LINT,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> LINT<dd><p><p>LINT expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> LINT<dd><p><p>LINT actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsLreal" data-uid="Testbench.IAssertions.EqualsLreal">
+EqualsLreal
+</h3><a name="EqualsLreal"></a>
+<p>Asserts that two LREALs are equal to within a positive delta. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsLreal (
+ expected : LREAL,
+ actual : LREAL,
+ delta : LREAL,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> LREAL<dd><p><p>LREAL expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> LREAL<dd><p><p>LREAL actual value</p>
+</dd><a name="delta"></a><dt><code>delta</code> LREAL<dd><p><p>The maximum delta between the absolute value of expected and actual for which both numbers are still considered equal</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsLtime" data-uid="Testbench.IAssertions.EqualsLtime">
+EqualsLtime
+</h3><a name="EqualsLtime"></a>
+<p>Asserts that two LTIMEs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsLtime (
+ expected : LTIME,
+ actual : LTIME,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> Testbench.LTIME<dd><p><p>LTIME expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> Testbench.LTIME<dd><p><p>LTIME actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsLword" data-uid="Testbench.IAssertions.EqualsLword">
+EqualsLword
+</h3><a name="EqualsLword"></a>
+<p>Asserts that two LWORDs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsLword (
+ expected : LWORD,
+ actual : LWORD,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> LWORD<dd><p><p>LWORD expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> LWORD<dd><p><p>LWORD actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsReal" data-uid="Testbench.IAssertions.EqualsReal">
+EqualsReal
+</h3><a name="EqualsReal"></a>
+<p>Asserts that two REALs are equal to within a positive delta. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsReal (
+ expected : REAL,
+ actual : REAL,
+ delta : REAL,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> REAL<dd><p><p>REAL expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> REAL<dd><p><p>REAL actual value</p>
+</dd><a name="delta"></a><dt><code>delta</code> REAL<dd><p><p>The maximum delta between the absolute value of expected and actual for which both numbers are still considered equal</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsSint" data-uid="Testbench.IAssertions.EqualsSint">
+EqualsSint
+</h3><a name="EqualsSint"></a>
+<p>Asserts that two SINTs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsSint (
+ expected : SINT,
+ actual : SINT,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> SINT<dd><p><p>SINT expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> SINT<dd><p><p>SINT actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsString" data-uid="Testbench.IAssertions.EqualsString">
+EqualsString
+</h3><a name="EqualsString"></a>
+<p>Asserts that two STRINGs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsString (
+ expected : STRING(255),
+ actual : STRING(255),
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> STRING(255)<dd><p><p>STRING expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> STRING(255)<dd><p><p>STRING actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p></p></dd></dl>
+<h3 id="Testbench.IAssertions_EqualsTime" data-uid="Testbench.IAssertions.EqualsTime">
+EqualsTime
+</h3><a name="EqualsTime"></a>
+<p>Asserts that two TIMEs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsTime (
+ expected : TIME,
+ actual : TIME,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> TIME<dd><p><p>TIME expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> TIME<dd><p><p>TIME actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsTimeOfDay" data-uid="Testbench.IAssertions.EqualsTimeOfDay">
+EqualsTimeOfDay
+</h3><a name="EqualsTimeOfDay"></a>
+<p>Asserts that two TIME_OF_DAYs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsTimeOfDay (
+ expected : TIME_OF_DAY,
+ actual : TIME_OF_DAY,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> TIME_OF_DAY<dd><p><p>TIME_OF_DAY expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> TIME_OF_DAY<dd><p><p>TIME_OF_DAY actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsUdint" data-uid="Testbench.IAssertions.EqualsUdint">
+EqualsUdint
+</h3><a name="EqualsUdint"></a>
+<p>Asserts that two UDINTs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsUdint (
+ expected : UDINT,
+ actual : UDINT,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> UDINT<dd><p><p>UDINT expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> UDINT<dd><p><p>UDINT actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsUint" data-uid="Testbench.IAssertions.EqualsUint">
+EqualsUint
+</h3><a name="EqualsUint"></a>
+<p>Asserts that two UINTs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsUint (
+ expected : UINT,
+ actual : UINT,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> UINT<dd><p><p>UINT expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> UINT<dd><p><p>UINT actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsUlint" data-uid="Testbench.IAssertions.EqualsUlint">
+EqualsUlint
+</h3><a name="EqualsUlint"></a>
+<p>Asserts that two ULINTs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsUlint (
+ expected : ULINT,
+ actual : ULINT,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> ULINT<dd><p><p>ULINT expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> ULINT<dd><p><p>ULINT actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsUsint" data-uid="Testbench.IAssertions.EqualsUsint">
+EqualsUsint
+</h3><a name="EqualsUsint"></a>
+<p>Asserts that two USINTs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsUsint (
+ expected : USINT,
+ actual : USINT,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> USINT<dd><p><p>USINT expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> USINT<dd><p><p>USINT actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsWord" data-uid="Testbench.IAssertions.EqualsWord">
+EqualsWord
+</h3><a name="EqualsWord"></a>
+<p>Asserts that two WORDs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsWord (
+ expected : WORD,
+ actual : WORD,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> WORD<dd><p><p>WORD expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> WORD<dd><p><p>WORD actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_EqualsWstring" data-uid="Testbench.IAssertions.EqualsWstring">
+EqualsWstring
+</h3><a name="EqualsWstring"></a>
+<p>Asserts that two WSTRINGs are equal. If they are not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC EqualsWstring (
+ expected : WSTRING(255),
+ actual : WSTRING(255),
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="expected"></a><dt><code>expected</code> WSTRING(255)<dd><p><p>WSTRING expected value</p>
+</dd><a name="actual"></a><dt><code>actual</code> WSTRING(255)<dd><p><p>WSTRING actual value</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_IsFalse" data-uid="Testbench.IAssertions.IsFalse">
+IsFalse
+</h3><a name="IsFalse"></a>
+<p>Asserts that a condition is false. If it is not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC IsFalse (
+ condition : BOOL,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="condition"></a><dt><code>condition</code> BOOL<dd><p><p>Condition to be checked</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+<h3 id="Testbench.IAssertions_IsTrue" data-uid="Testbench.IAssertions.IsTrue">
+IsTrue
+</h3><a name="IsTrue"></a>
+<p>Asserts that a condition is true. If it is not, an assertion error is created.</p>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD PUBLIC IsTrue (
+ condition : BOOL,
+ message : STRING(255))
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="condition"></a><dt><code>condition</code> BOOL<dd><p><p>Condition to be checked</p>
+</dd><a name="message"></a><dt><code>message</code> STRING(255)<dd><p><p>The identifying message for the assertion error</p>
+</dd></dl>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Zeugwerk/Testbench/blob/59aea7fb4f86242169d5892e79a2a79ceaced5a7/doc/reference/Testbench/IAssertions.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      Documentation powered by <a href="https://github.com/Zeugwerk/zkdoc-action">zkdoc</a>
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
