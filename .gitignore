@@ -1,4 +1,5 @@
 .Zeugwerk/libraries
+examples/tests
 # TwinCAT files
 *.db
 *.bak

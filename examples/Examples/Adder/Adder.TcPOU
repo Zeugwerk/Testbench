@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Adder" Id="{9645f133-568f-4921-a679-3f6856052c36}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Adder
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="AddInt" Id="{072953dd-cf38-4c53-92e6-6443d1206026}">
+      <Declaration><![CDATA[METHOD AddInt : INT
+VAR_INPUT
+  value1 : INT;
+  value2 : INT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[AddInt := value1 + value2;]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

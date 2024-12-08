@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="AdderTest" Id="{2cdb9ddd-ae20-45b5-b92a-76fc03bc0110}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK AdderTest IMPLEMENTS Testbench.IUnitTest
+VAR
+  _adder : Adder;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="Test_Add_ReturnsCorrectResult" Id="{3e6190a4-8d03-4eb2-a842-0efcfc6fc15d}">
+      <Declaration><![CDATA[METHOD Test_Add_ReturnsCorrectResult
+VAR_INPUT
+  assertions : Testbench.IAssertions;
+END_VAR
+VAR
+  result : INT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// arrange
+
+// act
+result := _adder.AddInt(5, 3);
+
+// assert
+assertions.EqualsInt(8, result, 'Result is correct');]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
