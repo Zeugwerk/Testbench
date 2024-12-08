@@ -2,6 +2,8 @@
 
 **Testbench** is a lightweight library designed to provide a unified interface for various PLC unittest framework implementations. It acts as a bridge, allowing developers to write consistent test logic while supporting multiple underlying test frameworks. It reduces the overhead to write tests and therefore lower the hurdle for writing unittests, to a bare minimum!
 
+The library can be used together with **Zeugwerk Creator's Test Explorer** for a seamless test integration into TwinCAT'S IDEs (TcXaeShell, Visual Studio). There, [TcUnit](https://tcunit.org/) is used as a unit-test backend.
+
 ## Key Features  
 - Framework-agnostic interfaces for test implementation.  
 - Simplifies integration with popular unittest frameworks.  
