@@ -4,8 +4,8 @@ on:
     branches:
       - main
     paths:
-      - 'docs/**'
-      - 'Struckig/**'
+      - 'doc/**'
+      - 'src/**'
   pull_request:
   workflow_dispatch:
 jobs:
