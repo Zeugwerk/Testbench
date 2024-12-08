@@ -6,9 +6,10 @@ The library can be used together with **Zeugwerk Creator's Test Explorer** for a
 
 ## Key Features  
 - Framework-agnostic interfaces for test implementation.  
-- Simplifies integration with popular unittest frameworks.  
-- Designed to support extensibility for new frameworks.  
-- Ideal for use with tools like Zeugwerk Test Explorer.  
+- Designed to support extensibility for new test frameworks.  
+- Ideal for use with tools like Zeugwerk Test Explorer.
+- Bare minimum code overhead when implementing tests.
+- Support for code generators for dynamically created unittests.
 
 ---
 
