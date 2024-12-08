@@ -41,7 +41,7 @@ The library can be used together with **Zeugwerk Creator's Test Explorer** for a
        message : STRING(255);
      END_VAR
      ```
-     where <TYPE> can be any IEC61131-3 compatible type like `DINT`, `INT`, `WORD` or `BOOL`
+     where `<TYPE>` can be any IEC61131-3 compatible type like `DINT`, `INT`, `WORD` or `BOOL`
 
 1. Test may be parametrized by using the `DataRow` attribute. When generating the unittest, every datarow will be its own test. The signature for using paramtrized tests looks as follows.
      ``` st
