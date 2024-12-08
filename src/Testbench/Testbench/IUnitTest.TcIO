@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <Itf Name="IUnitTest" Id="{4c7ef7ec-36c6-47a6-bf1e-e6c4d5e669c7}">
+    <Declaration><![CDATA[/// Unittests are handled by Zeugwerk Developer-Tools, which are paritially available as online services in the form of
+/// GitHub actions ([zkbuild](https://github.com/Zeugwerk/zkbuild-action), [zkdoc](https://github.com/Zeugwerk/zkdoc-action).
+/// These online services are available for any PLC and do not explicitly require the Zeugwerk Framework, as demonstrated by
+/// open source projects
+/// - [Twinson](https://github.com/stefanbesler/Twinson)
+/// - [Struckig](https://github.com/stefanbesler/struckig)
+///
+/// The unittest mechanism is as follows
+/// 1. Testsuites are implemented as function blocks, which have to implement [IUnitTest](xref:Testbench.IUnitTest)
+///
+///    ``` st  
+///    FUNCTION_BLOCK <POU>Test EXTENDS <POU> IMPLEMENTS Testbench.IUnitTest>
+///    ```
+///   
+///    Note that by extending testsuites from the object that is testes, the suite gets access protected methods
+///    of the POU.
+/// 1. Tests are implemented as method for each testsuite. Methods, which are considered unittests follow the following signature.
+///
+///    ``` st  
+///    METHOD Test_<NAME OF THE TEST>
+///    VAR_INPUT
+///      assertions : IAssertions;
+///    END_VAR
+///    ```
+///
+///    or, for more simple tests with only 1 assertion
+///
+///    ``` st  
+///    METHOD Test_<NAME OF THE TEST>
+///    VAR_OUTPUT
+///      expected : <TYPE>;
+///      actual : <TYPE>;
+///      message : STRING(255);
+///    END_VAR
+///    ```
+///    where `<TYPE>` can be any IEC61131-3 compatible type like DINT, INT, WORD or BOOL
+/// 1. Test may be parametrized by using the `DataRow` attribute. When generating the unittest, every datarow will be its own test. The signature
+///    for using paramtrized tests looks as follows.
+///
+///    ``` st  
+///    {attribute 'DataRow(<PARAMETER_1 VALUE>, <PARAMETER_2 VALUE>, ..., <PARAMETER_N VALUE>)'}
+///    {attribute 'DataRow(<PARAMETER_1 VALUE>, <PARAMETER_2 VALUE>, ..., <PARAMETER_N VALUE>)'}
+///    // ...
+///    {attribute 'DataRow(<PARAMETER_1 VALUE>, <PARAMETER_2 VALUE>, ..., <PARAMETER_N VALUE>)'}
+///    METHOD Test_<NAME OF THE TEST>
+///    VAR_INPUT
+///      assertions : IAssertions;
+///      <PARAMETER_1> : <PARAMETER_1 DATATYPE>
+///      <PARAMETER_2> : <PARAMETER_2 DATATYPE>
+///      // ...
+///      <PARAMETER_N> : <PARAMETER_N DATATYPE>
+///    END_VAR
+///    ```
+INTERFACE IUnitTest]]></Declaration>
+  </Itf>
+</TcPlcObject>

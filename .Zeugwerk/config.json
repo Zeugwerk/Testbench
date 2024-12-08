@@ -1,0 +1,17 @@
+{
+  "fileversion": 1,
+  "solution": "src/Testbench.sln",
+  "projects": [
+    {
+      "name": "Testbench",
+      "plcs": [
+        {
+          "version": "1.0.0.0",
+          "distributor-name": "Zeugwerk GmbH",
+          "name": "Testbench",
+          "type": "Library"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <Itf Name="IAssertions" Id="{ae289fb1-79eb-40f7-8c15-dffa9b27769b}">
+    <Declaration><![CDATA[/// Collection of utility methods that support asserting conditions in unittests.
+/// The declarations are taken from [TcUnit](https://github.com/tcunit/TcUnit) and the usual implementation
+/// of this interface that is used when testing is a wrapper around [FB_TestSuite](https://github.com/tcunit/TcUnit).
+/// 
+/// For details, see [IUnitTest](xref:Testbench.IUnitTest).
+INTERFACE IAssertions
+]]></Declaration>
+    <Method Name="Equals" Id="{092092ee-35b6-45cc-a1ac-e428e5d747ba}">
+      <Declaration><![CDATA[/// Asserts that two objects (of any type) are equal. If they are not, an assertion error is created.
+/// For REAL and LREAL it's recommended to use the AssertEquals_REAL or AssertEquals_LREAL respectively
+/// as these give the possibility to specify a delta between the expected and actual value.
+METHOD PUBLIC Equals
+VAR_INPUT
+  expected : ANY; //< Expected value
+  actual : ANY; //< The value to check against expected
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArray2dLreal" Id="{964c2fec-9de7-47ae-bee4-23c559ae4a3f}">
+      <Declaration><![CDATA[/// Asserts that two LREAL 2D-arrays are equal to within a positive delta. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArray2dLreal
+VAR_IN_OUT
+  expected : ARRAY[*,*] OF LREAL; //< LREAL 2d array with expected values
+  actual : ARRAY[*,*] OF LREAL; //< LREAL 2d array with actual values
+END_VAR
+VAR_INPUT
+  delta : LREAL; //< The maximum delta between the value of expected and actual for which both numbers are still considered equal, proportional to the expected value in that array cell
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArray2dReal" Id="{dc3b5666-7b5a-49ae-9837-cbb9bedd911a}">
+      <Declaration><![CDATA[(*
+    Asserts that two REAL 2D-arrays are equal to within a positive delta. If they are not, an assertion error is created.
+*)
+METHOD PUBLIC EqualsArray2dReal
+VAR_IN_OUT
+  expected : ARRAY[*,*] OF REAL; //< REAL 2d array with expected values
+  actual : ARRAY[*,*] OF REAL; //< REAL 2d array with actual values
+END_VAR
+VAR_INPUT
+  delta : REAL; //< The maximum delta between the value of expected and actual for which both numbers are still considered equal, proportional to the expected value in that array cell
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArray3dLreal" Id="{251da4d5-4df8-4eed-b154-a479323eb0d5}">
+      <Declaration><![CDATA[/// Asserts that two LREAL 3D-arrays are equal to within a positive delta. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArray3dLreal
+VAR_IN_OUT
+  expected : ARRAY[*,*,*] OF LREAL; //< LREAL 3d array with expected values
+  actual : ARRAY[*,*,*] OF LREAL; //< LREAL 3d array with actual values
+END_VAR
+VAR_INPUT
+  delta : LREAL; //< The maximum delta between the value of expected and actual for which both numbers are still considered equal, proportional to the expected value in that array cell
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArray3dReal" Id="{0dc8fccf-4b9a-4206-8d9f-212f576edb04}">
+      <Declaration><![CDATA[/// Asserts that two REAL 3D-arrays are equal to within a positive delta. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArray3dReal
+VAR_IN_OUT
+  expected : ARRAY[*,*,*] OF REAL; //< REAL 3d array with expected values
+  actual : ARRAY[*,*,*] OF REAL; //< REAL 3d array with actual values
+END_VAR
+VAR_INPUT
+  delta : REAL; //< The maximum delta between the value of expected and actual for which both numbers are still considered equal, proportional to the expected value in that array cell
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArrayBool" Id="{3d4059ab-c241-4859-9a9f-090cab6db606}">
+      <Declaration><![CDATA[/// Asserts that two BOOL arrays are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArrayBool
+VAR_IN_OUT
+  expected : ARRAY[*] OF BOOL; //< BOOL array with expected values
+  actual : ARRAY[*] OF BOOL; //< BOOL array with actual values
+END_VAR
+VAR_INPUT
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArrayByte" Id="{375a5287-a3e9-4833-ac17-bab8f3f0fdc9}">
+      <Declaration><![CDATA[/// Asserts that two BYTE arrays are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArrayByte
+VAR_IN_OUT
+  expected : ARRAY[*] OF BYTE; //< BYTE array with expected values
+  actual : ARRAY[*] OF BYTE; //< BYTE array with actual values
+END_VAR
+VAR_INPUT
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArrayDint" Id="{4f0d9b20-0c78-467d-a52a-6badbd5d37cc}">
+      <Declaration><![CDATA[/// Asserts that two DINT arrays are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArrayDint
+VAR_IN_OUT
+  expected : ARRAY[*] OF DINT; //< DINT array with expected values
+  actual : ARRAY[*] OF DINT; //< DINT array with actual values
+END_VAR
+VAR_INPUT
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArrayDword" Id="{eec9d02d-95a1-4885-9906-ad4b2d0f4cab}">
+      <Declaration><![CDATA[/// Asserts that two DWORD arrays are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArrayDword
+VAR_IN_OUT
+  expected : ARRAY[*] OF DWORD; //< DWORD array with expected values
+  actual : ARRAY[*] OF DWORD; //< DWORD array with actual values
+END_VAR
+VAR_INPUT
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArrayInt" Id="{d54cf111-a7e7-4f51-bdf4-9853e055f62d}">
+      <Declaration><![CDATA[/// Asserts that two INT arrays are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArrayInt
+VAR_IN_OUT
+  expected : ARRAY[*] OF INT; //< INT array with expected values
+  actual : ARRAY[*] OF INT; //< INT array with actual values
+END_VAR
+VAR_INPUT
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArrayLint" Id="{d7e53e6b-caed-4867-9ef5-3ccb7ae16bf8}">
+      <Declaration><![CDATA[/// Asserts that two LINT arrays are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArrayLint
+VAR_IN_OUT
+  expected : ARRAY[*] OF LINT; //< LINT array with expected values
+  actual : ARRAY[*] OF LINT; //< LINT array with actual values
+END_VAR
+VAR_INPUT
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArrayLreal" Id="{fbc23ff0-cdf6-43f2-82cd-e6f3a7903664}">
+      <Declaration><![CDATA[/// Asserts that two LREAL arrays are equal to within a positive delta. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArrayLreal
+VAR_IN_OUT
+  expected : ARRAY[*] OF LREAL; //< LREAL array with expected values
+  actual : ARRAY[*] OF LREAL; //< LREAL array with actual values
+END_VAR
+VAR_INPUT
+  delta : LREAL; //< The maximum delta between the value of expected and actual for which both numbers are still considered equal, proportional to the expected value in that array cell
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArrayLword" Id="{7bc0c786-fccc-46e3-b38f-2013c44bfcb0}">
+      <Declaration><![CDATA[/// Asserts that two LWORD arrays are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArrayLword
+VAR_IN_OUT
+  expected : ARRAY[*] OF LWORD; //< LWORD array with expected values
+  actual : ARRAY[*] OF LWORD; //< LWORD array with actual values
+END_VAR
+VAR_INPUT
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArrayReal" Id="{c42ec40e-0859-4258-a3b2-11b258dab324}">
+      <Declaration><![CDATA[/// Asserts that two REAL arrays are equal to within a positive delta. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArrayReal
+VAR_IN_OUT
+  expected : ARRAY[*] OF REAL; //< REAL array with expected values
+  actual : ARRAY[*] OF REAL; //< REAL array with actual values
+END_VAR
+VAR_INPUT
+  delta : REAL; //< The maximum delta between the value of expected and actual for which both numbers are still considered equal, proportional to the expected value in that array cell
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArraySint" Id="{133c577e-0641-4157-b42b-46dbf29f788e}">
+      <Declaration><![CDATA[/// Asserts that two SINT arrays are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArraySint
+VAR_IN_OUT
+  expected : ARRAY[*] OF SINT; //< SINT array with expected values
+  actual : ARRAY[*] OF SINT; //< SINT array with actual values
+END_VAR
+VAR_INPUT
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArrayUdint" Id="{5f690331-57e2-4ea1-b1d7-ab65b52dc848}">
+      <Declaration><![CDATA[/// Asserts that two UDINT arrays are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArrayUdint
+VAR_IN_OUT
+  expected : ARRAY[*] OF UDINT; //< UDINT array with expected values
+  actual : ARRAY[*] OF UDINT; //< UDINT array with actual values
+END_VAR
+VAR_INPUT
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArrayUint" Id="{358571ac-0a0d-4e71-8097-c7943f718fce}">
+      <Declaration><![CDATA[/// Asserts that two UINT arrays are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArrayUint
+VAR_IN_OUT
+  expected : ARRAY[*] OF UINT; //< UINT array with expected values
+  actual : ARRAY[*] OF UINT; //< UINT array with actual values
+END_VAR
+VAR_INPUT
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArrayUlint" Id="{916529a0-57b3-4947-a5b8-e7b9ff17f35f}">
+      <Declaration><![CDATA[/// Asserts that two ULINT arrays are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArrayUlint
+VAR_IN_OUT
+  expected : ARRAY[*] OF ULINT; //< ULINT array with expected values
+  actual : ARRAY[*] OF ULINT; //< ULINT array with actual values
+END_VAR
+VAR_INPUT
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArrayUsint" Id="{b3215098-2f26-48bf-a7e4-ee1a0803a968}">
+      <Declaration><![CDATA[/// Asserts that two USINT arrays are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArrayUsint
+VAR_IN_OUT
+  expected : ARRAY[*] OF USINT; //< USINT array with expected values
+  actual : ARRAY[*] OF USINT; //< USINT array with actual values
+END_VAR
+VAR_INPUT
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsArrayWord" Id="{16eada18-ce2b-459d-a8d9-277e84766935}">
+      <Declaration><![CDATA[/// Asserts that two WORD arrays are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsArrayWord
+VAR_IN_OUT
+  expected : ARRAY[*] OF WORD; //< WORD array with expected values
+  actual : ARRAY[*] OF WORD; //< WORD array with actual values
+END_VAR
+VAR_INPUT
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsBool" Id="{0c41b405-ea35-4450-93cc-7c3349bdf754}">
+      <Declaration><![CDATA[/// Asserts that two BOOLs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsBool
+VAR_INPUT
+  expected : BOOL; //< BOOL expected value
+  actual : BOOL; //< BOOL actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsByte" Id="{c039f3f1-9c41-4f5e-93a3-393ce160979a}">
+      <Declaration><![CDATA[/// Asserts that two BYTEs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsByte
+VAR_INPUT
+  expected : BYTE; //< BYTE expected value
+  actual : BYTE; //< BYTE actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsDate" Id="{1645ab79-f969-41aa-a170-f589a5757e7f}">
+      <Declaration><![CDATA[/// Asserts that two DATEs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsDate
+VAR_INPUT
+  expected : DATE; //< DATE expected value
+  actual : DATE; //< DATE actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsDateAndTime" Id="{42befc01-2199-49e2-b7ef-cf909b8890f9}">
+      <Declaration><![CDATA[/// Asserts that two DATE_AND_TIMEs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsDateAndTime
+VAR_INPUT
+  expected : DATE_AND_TIME; //< DATE_AND_TIME expected value
+  actual : DATE_AND_TIME; //< DATE_AND_TIME actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsDint" Id="{b7177b75-64df-4021-85c6-c366f61f5f89}">
+      <Declaration><![CDATA[/// Asserts that two DINTs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsDint
+VAR_INPUT
+  expected : DINT; //< DINT expected value
+  actual : DINT; //< DINT actual value
+  message : STRING(255); // The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsDword" Id="{3ce6ba77-0ab2-46fc-a7c9-978b376b93be}">
+      <Declaration><![CDATA[/// Asserts that two DWORDs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsDword
+VAR_INPUT
+  expected : DWORD; //< DWORD expected value
+  actual : DWORD; //< DWORD actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsInt" Id="{7c61106e-9bcd-4577-a949-ab96d8862e41}">
+      <Declaration><![CDATA[/// Asserts that two INTs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsInt
+VAR_INPUT
+  expected : INT; //< INT expected value
+  actual : INT; //< INT actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsLint" Id="{9dc34017-cbc7-41a9-83a2-941f39cc7271}">
+      <Declaration><![CDATA[/// Asserts that two LINTs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsLint
+VAR_INPUT
+  expected : LINT; //< LINT expected value
+  actual : LINT; //< LINT actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsLreal" Id="{205d107c-0a2d-44f7-b68a-eb06720b6a6b}">
+      <Declaration><![CDATA[/// Asserts that two LREALs are equal to within a positive delta. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsLreal
+VAR_INPUT
+  expected : LREAL; //< LREAL expected value
+  actual : LREAL; //< LREAL actual value
+  delta : LREAL; //< The maximum delta between the absolute value of expected and actual for which both numbers are still considered equal
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsLtime" Id="{05ea6378-c553-40a9-9e6b-8f3736f63098}">
+      <Declaration><![CDATA[/// Asserts that two LTIMEs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsLtime
+VAR_INPUT
+  expected : LTIME; //< LTIME expected value
+  actual : LTIME; //< LTIME actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsLword" Id="{08b090fb-911b-49fa-a51a-7f5edfd3dd2c}">
+      <Declaration><![CDATA[/// Asserts that two LWORDs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsLword
+VAR_INPUT
+  expected : LWORD; //< LWORD expected value
+  actual : LWORD; //< LWORD actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsReal" Id="{fba4feaf-27d0-4f8b-9014-3895f7bb9cc7}">
+      <Declaration><![CDATA[/// Asserts that two REALs are equal to within a positive delta. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsReal
+VAR_INPUT
+  expected : REAL; //< REAL expected value
+  actual : REAL; //< REAL actual value
+  delta : REAL;  //< The maximum delta between the absolute value of expected and actual for which both numbers are still considered equal
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsSint" Id="{10052dfe-cfcb-4a5a-aa97-151e272ce217}">
+      <Declaration><![CDATA[/// Asserts that two SINTs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsSint
+VAR_INPUT
+  expected : SINT; //< SINT expected value
+  actual : SINT; //< SINT actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsString" Id="{cad7fed3-5db3-4371-9240-856c3c740489}">
+      <Declaration><![CDATA[/// Asserts that two STRINGs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsString
+VAR_INPUT
+  expected : STRING(255); //< STRING expected value
+  actual : STRING(255); //< STRING actual value
+  message : STRING(255); // The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsTime" Id="{717a0cdd-16a7-4f45-90f3-f5700dba9369}">
+      <Declaration><![CDATA[/// Asserts that two TIMEs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsTime
+VAR_INPUT
+  expected : TIME; //< TIME expected value
+  actual : TIME; //< TIME actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsTimeOfDay" Id="{d892dd01-3d32-4eb1-9f95-980dff16616c}">
+      <Declaration><![CDATA[/// Asserts that two TIME_OF_DAYs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsTimeOfDay
+VAR_INPUT
+  expected : TIME_OF_DAY; //< TIME_OF_DAY expected value
+  actual : TIME_OF_DAY; //< TIME_OF_DAY actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsUdint" Id="{9c21e8db-62d7-4e5c-8e00-cd508f4f5abc}">
+      <Declaration><![CDATA[/// Asserts that two UDINTs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsUdint
+VAR_INPUT
+  expected : UDINT; //< UDINT expected value
+  actual : UDINT; //< UDINT actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsUint" Id="{86b960b9-ebc0-46af-91ed-94a423f501dc}">
+      <Declaration><![CDATA[/// Asserts that two UINTs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsUint
+VAR_INPUT
+  expected : UINT; //< UINT expected value
+  actual : UINT; //< UINT actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsUlint" Id="{6f1e7566-33c3-4f9c-b92d-7828feb26211}">
+      <Declaration><![CDATA[/// Asserts that two ULINTs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsUlint
+VAR_INPUT
+  expected : ULINT; //< ULINT expected value
+  actual : ULINT; //< ULINT actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsUsint" Id="{7f12117a-f0ab-475b-ba47-c8a5c801a9ac}">
+      <Declaration><![CDATA[/// Asserts that two USINTs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsUsint
+VAR_INPUT
+  expected : USINT; //< USINT expected value
+  actual : USINT; //< USINT actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsWord" Id="{85132cdb-0553-4070-be9a-976fcddd873d}">
+      <Declaration><![CDATA[/// Asserts that two WORDs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsWord
+VAR_INPUT
+  expected : WORD; //< WORD expected value
+  actual : WORD; //< WORD actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="EqualsWstring" Id="{74750f5e-0a5e-499f-bc11-ef38c3a2fafb}">
+      <Declaration><![CDATA[/// Asserts that two WSTRINGs are equal. If they are not, an assertion error is created.
+METHOD PUBLIC EqualsWstring
+VAR_INPUT
+  expected : WSTRING(255); //< WSTRING expected value
+  actual : WSTRING(255); //< WSTRING actual value
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="IsFalse" Id="{022665a8-9003-4aaa-8ef4-bd39fe196883}">
+      <Declaration><![CDATA[/// Asserts that a condition is false. If it is not, an assertion error is created.
+METHOD PUBLIC IsFalse
+VAR_INPUT
+  condition : BOOL; //< Condition to be checked
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="IsTrue" Id="{c415013c-c271-42ba-83ad-6c2c653d8f2e}">
+      <Declaration><![CDATA[/// Asserts that a condition is true. If it is not, an assertion error is created.
+METHOD PUBLIC IsTrue
+VAR_INPUT
+  condition : BOOL; //< Condition to be checked
+  message : STRING(255); //< The identifying message for the assertion error
+END_VAR]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>
