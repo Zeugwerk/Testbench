@@ -1,6 +1,6 @@
 # Testbench 
 
-**Testbench** is a lightweight library designed to provide a unified interface for various PLC unittest framework implementations. It acts as a bridge, allowing developers to write consistent test logic while supporting multiple underlying test frameworks. It reduces the overhead to weite tests and therefore lower the hurdle for writing unittests, to a bare minimum!
+**Testbench** is a lightweight library designed to provide a unified interface for various PLC unittest framework implementations. It acts as a bridge, allowing developers to write consistent test logic while supporting multiple underlying test frameworks. It reduces the overhead to write tests and therefore lower the hurdle for writing unittests, to a bare minimum!
 
 ## Key Features  
 - Framework-agnostic interfaces for test implementation.  
