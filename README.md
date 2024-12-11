@@ -2,6 +2,9 @@
 
 **Testbench** is a lightweight library designed to provide a unified interface for various PLC unittest framework implementations. It acts as a bridge, allowing developers to write consistent test logic while supporting multiple underlying test frameworks. It reduces the overhead to write tests and therefore lower the hurdle for writing unittests, to a bare minimum!
 
+![image](https://github.com/user-attachments/assets/de76a850-9398-492f-8804-32fb175415ad)
+
+
 The library can be used together with **Zeugwerk Creator's Test Explorer** for a seamless test integration into TwinCAT'S IDEs (TcXaeShell, Visual Studio). There, [TcUnit](https://tcunit.org/) is used as a unit-test backend.
 
 ## Key Features  
@@ -43,6 +46,9 @@ The library can be used together with **Zeugwerk Creator's Test Explorer** for a
      ```
      where `<TYPE>` can be any IEC61131-3 compatible type like `DINT`, `INT`, `WORD` or `BOOL`
 
+     ![image](https://github.com/user-attachments/assets/be609a50-3da9-4bbe-9cdc-f76d09038e1d)
+
+
 1. Test may be parametrized by using the `DataRow` attribute. When generating the unittest, every datarow will be its own test. The signature for using paramtrized tests looks as follows.
      ``` st
      {attribute 'DataRow(<PARAMETER_1 VALUE>, <PARAMETER_2 VALUE>, ..., <PARAMETER_N VALUE>)'}
@@ -63,4 +69,18 @@ The library can be used together with **Zeugwerk Creator's Test Explorer** for a
 
 Testbench is designed to integrate seamlessly with **Zeugwerk Test Explorer**. By implementing Testbench’s interfaces, you can enable structured test discovery and execution directly in your explorer tool.
 
-(more to come)
+- Implement tests as described in the section above
+- Navigate to `Tools > Zeugwerk Creator > Test Explorer`
+- In the new pane, click on `Run All Tests`, this will
+  - Compile your PLC and check all objects
+  - Install it as a local library
+  - In the background create a new PLC containing the code generation for all tests (`tests/Tests.sln`)
+  - Compile the Testing PLC
+  - Activate it on a target
+ 
+You can check the **Examples PLC** in this repository for a demonstration
+ 
+![image](https://github.com/user-attachments/assets/2887a596-f8b9-4f8c-ab2c-1a7c11f6780f)
+![image](https://github.com/user-attachments/assets/76f94b76-ba20-4fdd-bb00-144cf181ee70)
+
+
