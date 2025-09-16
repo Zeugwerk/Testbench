@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>IUnitTest </title>
+      <title>TestContext </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="IUnitTest ">
+      <meta name="title" content="TestContext ">
     
     
       <link rel="shortcut icon" href="../../favicon.ico">
@@ -91,11 +91,11 @@
                           <li class="">
                             <a href="../Testbench/ITestContext.html" title="ITestContext" class="">ITestContext</a>
                           </li>
-                          <li class="active">
-                            <a href="../Testbench/IUnitTest.html" title="IUnitTest" class="active">IUnitTest</a>
-                          </li>
                           <li class="">
-                            <a href="../Testbench/TestContext.html" title="TestContext" class="">TestContext</a>
+                            <a href="../Testbench/IUnitTest.html" title="IUnitTest" class="">IUnitTest</a>
+                          </li>
+                          <li class="active">
+                            <a href="../Testbench/TestContext.html" title="TestContext" class="active">TestContext</a>
                           </li>
                         </ul>
                     </li>
@@ -107,65 +107,73 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Testbench.IUnitTest">
-<h1 id="iunittest">IUnitTest</h1>
+            <article class="content wrap" id="_content" data-uid="Testbench.TestContext">
+<h1 id="testcontext">TestContext</h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="IUnitTest.html">Testbench</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="TestContext.html">Testbench</a></dd></dl>
   
   </div>
+<dl class="typelist implements"><dt>Implements</dt><dd>
+<div><a class="xref" href="ITestContext.html">ITestContext</a></div>
+</dd></dl>
 <div class="codewrapper">
-    <pre><code class="lang-st hljs">INTERFACE IUnitTest
+    <pre><code class="lang-st hljs">FUNCTION_BLOCK TestContext IMPLEMENTS Testbench.ITestContext
 </code></pre></div>
-<p>Unittests are handled by Zeugwerk Developer-Tools, which are paritially available as online services in the form of
-GitHub actions (<a href="https://github.com/Zeugwerk/zkbuild-action">zkbuild</a>, <a href="https://github.com/Zeugwerk/zkdoc-action">zkdoc</a>.
-These online services are available for any PLC and do not explicitly require the Zeugwerk Framework, as demonstrated by
-open source projects</p>
-<ul>
-<li><a href="https://github.com/stefanbesler/Twinson">Twinson</a></li>
-<li><a href="https://github.com/stefanbesler/struckig">Struckig</a></li>
-</ul>
-<p>The unittest mechanism is as follows</p>
-<ol>
-<li><p>Testsuites are implemented as function blocks, which have to implement <a class="xref" href="IUnitTest.html">IUnitTest</a></p>
-<pre><code class="lang-st">FUNCTION_BLOCK &lt;POU&gt;Test EXTENDS &lt;POU&gt; IMPLEMENTS Testbench.IUnitTest&gt;
-</code></pre>
-<p>Note that by extending testsuites from the object that is testes, the suite gets access protected methods
-of the POU.</p>
-</li>
-<li><p>Tests are implemented as method for each testsuite. Methods, which are considered unittests follow the following signature.</p>
-<pre><code class="lang-st">METHOD Test_&lt;NAME OF THE TEST&gt;
-VAR_INPUT
-  assertions : IAssertions;
-END_VAR
-</code></pre>
-<p>or, for more simple tests with only 1 assertion</p>
-<pre><code class="lang-st">METHOD Test_&lt;NAME OF THE TEST&gt;
-VAR_OUTPUT
-  expected : &lt;TYPE&gt;;
-  actual : &lt;TYPE&gt;;
-  message : STRING(255);
-END_VAR
-</code></pre>
-<p>where <code>&lt;TYPE&gt;</code> can be any IEC61131-3 compatible type like DINT, INT, WORD or BOOL</p>
-</li>
-<li><p>Test may be parametrized by using the <code>DataRow</code> attribute. When generating the unittest, every datarow will be its own test. The signature
-for using paramtrized tests looks as follows.</p>
-<pre><code class="lang-st">{attribute 'DataRow(&lt;PARAMETER_1 VALUE&gt;, &lt;PARAMETER_2 VALUE&gt;, ..., &lt;PARAMETER_N VALUE&gt;)'}
-{attribute 'DataRow(&lt;PARAMETER_1 VALUE&gt;, &lt;PARAMETER_2 VALUE&gt;, ..., &lt;PARAMETER_N VALUE&gt;)'}
-// ...
-{attribute 'DataRow(&lt;PARAMETER_1 VALUE&gt;, &lt;PARAMETER_2 VALUE&gt;, ..., &lt;PARAMETER_N VALUE&gt;)'}
-METHOD Test_&lt;NAME OF THE TEST&gt;
-VAR_INPUT
-  assertions : IAssertions;
-  &lt;PARAMETER_1&gt; : &lt;PARAMETER_1 DATATYPE&gt;
-  &lt;PARAMETER_2&gt; : &lt;PARAMETER_2 DATATYPE&gt;
-  // ...
-  &lt;PARAMETER_N&gt; : &lt;PARAMETER_N DATATYPE&gt;
-END_VAR
-</code></pre>
-</li>
-</ol>
+<p>[copydoc ZCore.ITestContext error]</p>
+<h2 class="section" id="constructors">Constructor</h2>
+<h3 id="Testbench_TestContext_FB_init" data-uid="Testbench.TestContext.FB_init">
+FB_init
+</h3><a name="FB_init"></a>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">METHOD FB_init (
+ [input] bInitRetains : BOOL,
+ [input] bInCopyCode : BOOL,
+ [input] assertions : IAssertions) : BOOL
+</code></pre></div>
+<h4 class="section">Inputs</h4><dl class="parameters">
+<a name="bInitRetains"></a><dt><code>bInitRetains</code> BOOL</dt><a name="bInCopyCode"></a><dt><code>bInCopyCode</code> BOOL</dt><a name="assertions"></a><dt><code>assertions</code> <a class="xref" href="IAssertions.html">IAssertions</a></dt></dl>
+<h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>BOOL</dt>
+    <dd></dd>
+  </dl>
+<h2 class="section" id="properties">Properties</h2>
+<h3 id="Testbench_TestContext_Assertions" data-uid="Testbench.TestContext.Assertions">
+Assertions
+</h3><a name="Assertions"></a>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">PROPERTY Assertions : IAssertions
+</code></pre></div>
+<h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="IAssertions.html">IAssertions</a></dt>
+    <dd></dd>
+  </dl>
+<h3 id="Testbench_TestContext_Busy" data-uid="Testbench.TestContext.Busy">
+Busy
+</h3><a name="Busy"></a>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">PROPERTY Busy : BOOL
+</code></pre></div>
+<p>[copydoc ZCore.ITestContext#Busy error]</p>
+<h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>BOOL</dt>
+    <dd></dd>
+  </dl>
+<h3 id="Testbench_TestContext_UserData" data-uid="Testbench.TestContext.UserData">
+UserData
+</h3><a name="UserData"></a>
+<div class="codewrapper">
+    <pre><code class="lang-st hljs">PROPERTY UserData : POINTER TO BYTE
+</code></pre></div>
+<p>[copydoc ZCore.ITestContext#UserData error]</p>
+<h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt>BYTE</dt>
+    <dd></dd>
+  </dl>
 
 </article>
           </div>
@@ -175,7 +183,7 @@ END_VAR
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Zeugwerk/Testbench/blob/b8c7c3464a32418d5516877b1111dc86dc84bf51/doc/reference/Testbench/IUnitTest.md/#L1" class="contribution-link">Edit this page</a>
+                    <a href="https://github.com/Zeugwerk/Testbench/blob/b8c7c3464a32418d5516877b1111dc86dc84bf51/doc/reference/Testbench/TestContext.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>

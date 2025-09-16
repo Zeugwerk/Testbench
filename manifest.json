@@ -14,6 +14,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "reference/Testbench.md",
+      "output": {
+        ".html": {
+          "relative_path": "reference/Testbench.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "reference/Testbench/IAssertions.md",
       "output": {
         ".html": {
@@ -24,10 +34,30 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "reference/Testbench/ITestContext.md",
+      "output": {
+        ".html": {
+          "relative_path": "reference/Testbench/ITestContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "reference/Testbench/IUnitTest.md",
       "output": {
         ".html": {
           "relative_path": "reference/Testbench/IUnitTest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "reference/Testbench/TestContext.md",
+      "output": {
+        ".html": {
+          "relative_path": "reference/Testbench/TestContext.html"
         }
       },
       "version": ""
