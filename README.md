@@ -25,7 +25,7 @@ The library can be used together with **Zeugwerk Creator's Test Explorer** for a
      ```
      
      By extending testsuites from the object that is testes, the testsuite gets access protected methods of the POU.
-1. Tests are implemented as method for each testsuite. Methods, which are considered unittests follow the following signature.
+1. Tests are implemented as method for each testsuite. Methods, which are considered unittests follow the following signatures.
      ``` st
      METHOD Test_<NAME OF THE TEST>
      VAR_INPUT
@@ -34,8 +34,20 @@ The library can be used together with **Zeugwerk Creator's Test Explorer** for a
      ```
 
      where `assertions` gives access to a large variety of checks (`EqualsDint`, `IsTrue`, `EqualsArray2dLreal`, ...).
+     
+     or
+     
+     ``` st
+     METHOD Test_<NAME OF THE TEST>
+     VAR_INPUT
+       context : Testbench.ITestContext;
+     END_VAR
+     ```
 
-     Alternatively, for more simple tests with only 1 assertion
+     where `context` allows to control the flow of the test case and `context.Assertions` gives access to a large variety of checks (`EqualsDint`, `IsTrue`, `EqualsArray2dLreal`, ...).
+     `context.Busy` allows you to specify when a test case is finished, which can be used for test cases that take multiple PLC cycles to finish.
+     
+     or alternatively, for more simple tests with only 1 assertion
      ``` st
      METHOD Test_<NAME OF THE TEST>
      VAR_OUTPUT
@@ -64,6 +76,24 @@ The library can be used together with **Zeugwerk Creator's Test Explorer** for a
        <PARAMETER_N> : <PARAMETER_N DATATYPE>
      END_VAR
      ```
+     
+     or, for more control using the `context` object.
+     
+     ``` st
+     {attribute 'DataRow(<PARAMETER_1 VALUE>, <PARAMETER_2 VALUE>, ..., <PARAMETER_N VALUE>)'}
+     {attribute 'DataRow(<PARAMETER_1 VALUE>, <PARAMETER_2 VALUE>, ..., <PARAMETER_N VALUE>)'}
+     // ...
+     {attribute 'DataRow(<PARAMETER_1 VALUE>, <PARAMETER_2 VALUE>, ..., <PARAMETER_N VALUE>)'}
+     METHOD Test_<NAME OF THE TEST>
+     VAR_INPUT
+       context : ITestContext;
+       <PARAMETER_1> : <PARAMETER_1 DATATYPE>
+       <PARAMETER_2> : <PARAMETER_2 DATATYPE>
+       // ...
+       <PARAMETER_N> : <PARAMETER_N DATATYPE>
+     END_VAR
+     ```
+     
 
 ## Execute Unittests
 
