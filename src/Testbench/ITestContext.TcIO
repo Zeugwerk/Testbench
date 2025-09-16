@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <Itf Name="ITestContext" Id="{4baea889-7635-4f58-8c74-8d2ec1a79879}">
+    <Declaration><![CDATA[/// A context can be passed to every unittest in order to implement tests, which take several cycles of the PLC to complete.
+/// Also, for a test suite the context is retained, and [UserData](xref:ZCore.ITestContext#UserData) can be used to pass
+/// data between tests if needed.
+///
+/// When implementing tests with a context, the signature of the tests have to look like
+/// ``` st  
+/// METHOD Test_<NAME OF THE TEST>
+/// VAR_INPUT
+///   context : ITestContext;
+/// END_VAR
+/// ```
+///
+/// The `context` provides properties to control the flow of the tests and `context.Assertions` can be used to 
+/// implement checks in the test.
+INTERFACE ITestContext
+]]></Declaration>
+    <Property Name="Assertions" Id="{0c53bf0d-9130-4674-90a9-082f86399f43}">
+      <Declaration><![CDATA[/// Returns the assertion interface, which can be used to do checks in a test case.
+PROPERTY Assertions : IAssertions]]></Declaration>
+      <Get Name="Get" Id="{b5143ef5-34d3-463f-aa5d-504fc894c2b1}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="Busy" Id="{be500ba1-267e-468a-b78e-9980f5115cb1}">
+      <Declaration><![CDATA[/// When set to `TRUE` the unit tests will be continously called until `Busy=FALSE`. This is useful
+/// if a test case has a time dependency, which can not simply be mocked. 
+PROPERTY Busy : BOOL]]></Declaration>
+      <Get Name="Get" Id="{7266df3d-8828-4767-b360-e04a7da8e5f8}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+      <Set Name="Set" Id="{815a83a7-db56-424e-86fa-d91e1c042ff2}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Set>
+    </Property>
+    <Property Name="UserData" Id="{23dfff55-9b26-41b8-9d4b-62401d3d9c08}">
+      <Declaration><![CDATA[/// UserData can be set and retrieved from a context to pass along information between different test cases.
+/// To use it, create your own datastructure and pass a pointer to `UserData`
+///
+/// For instance, you can create a datastructure, which looks like
+/// ``` st 
+/// TYPE MyTestData :
+/// STRUCT
+///   MyTestVar : INT;
+/// END_STRUCT
+/// ```
+///
+/// Then in a test case, set an instance of the structure to the context (note the instance has to be created on the heap, e.g. VAR_INST).
+PROPERTY UserData : POINTER TO BYTE]]></Declaration>
+      <Get Name="Get" Id="{a46c64ca-8b54-4191-9ce1-b1a3865767c9}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+      <Set Name="Set" Id="{b66593ec-85b7-4a7b-b83c-4c3334a50b83}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Set>
+    </Property>
+  </Itf>
+</TcPlcObject>
