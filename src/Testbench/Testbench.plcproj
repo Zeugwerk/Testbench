@@ -35,9 +35,6 @@
     <Compile Include="IUnitTest.TcIO">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TestContext.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>
