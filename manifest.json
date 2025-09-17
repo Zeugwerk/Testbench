@@ -53,16 +53,6 @@
       "version": ""
     },
     {
-      "type": "Conceptual",
-      "source_relative_path": "reference/Testbench/TestContext.md",
-      "output": {
-        ".html": {
-          "relative_path": "reference/Testbench/TestContext.html"
-        }
-      },
-      "version": ""
-    },
-    {
       "type": "Toc",
       "source_relative_path": "reference/Testbench/toc.yml",
       "output": {
