@@ -21,7 +21,7 @@ The library can be used together with **Zeugwerk Creator's Test Explorer** for a
 1. Add Testbench to your PLC by including it as a dependency. The simplest way todo this is by using [Twinpack](https://github.com/Zeugwerk/Twinpack) Package Manager, alternatively you can grab the [latest release](https://github.com/Zeugwerk/Testbench/releases/latest) from GitHub and install it manually in the TwinCAT XAE).
 1. Testsuites are function blocks implementing [IUnitTest](xref:Testbench.IUnitTest)
      ``` st  
-     FUNCTION_BLOCK <POU>Test EXTENDS <POU> IMPLEMENTS Testbench.IUnitTest>
+     FUNCTION_BLOCK <POU>Test EXTENDS <POU> IMPLEMENTS Testbench.IUnitTest
      ```
      
      By extending testsuites from the object that is testes, the testsuite gets access protected methods of the POU.
